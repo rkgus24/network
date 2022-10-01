@@ -1,0 +1,2 @@
+ <td> <a href="modify.jsp?custno=<%=rs.getString("custno") %>">
+ <%=rs.getString("custno") %> </a> </td>
