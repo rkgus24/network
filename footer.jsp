@@ -7,11 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<footer>
-		HRDKOREA Copyrightⓒ 2022 All rights reserved. human Resources Development Service of Korea.
-	</footer>
-	
-
+    <footer>부산소프트웨어마이스터고등학교©2022 All rights reserved.</footer>
 </body>
 </html>
