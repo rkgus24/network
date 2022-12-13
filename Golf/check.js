@@ -26,7 +26,7 @@
 }
 
 function reseting(){
-    alert("정보를 지우고 청므부터 다시 입력합니다!")
+    alert("정보를 지우고 부터 다시 입력합니다!")
     document.frm.reset()
 }
 function getNumber(number){
