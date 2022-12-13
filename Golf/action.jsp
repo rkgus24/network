@@ -1,28 +1,47 @@
-<%@page import="java.sql.*" %>
+<%@page import="java.sql.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
 <%
-    Class.forName("oracle.jdbc.OracleDriver");
-      Connection con = DriverManager.getConnection("jdbc:oracle:thin:@//localhost:1521/xe","system","1234");
-    request.setCharacterEncoding("UTF-8");
-    
-    String date = request.getParameter("price");
-    String number = request.getParameter("number");
-    String area = request.getParameter("area");
-    int price = Integer.parseInt(request.getParameter("price"));
-    int className = Integer.parseInt(request.getParameter("className")) /1000;
-    try{
-        String sql = "INSERT INTO tbl_class_202201 VALUES(?, ?, ?, ?, ?)";
-        PreparedStatement pstmt = con.prepareStatement(sql);
+request.setCharacterEncoding("UTF-8");
+String mode = request.getParameter("mode");
+String month = request.getParameter("month");
+String cname = request.getParameter("cname");
+String cno = request.getParameter("cno");
+String area = request.getParameter("area");
+String tcode = request.getParameter("tcode");
+String price = request.getParameter("price");
 
-        pstmt.setString(1, date);
-        pstmt.setString(2, number);
-        pstmt.setString(3, area);
-        pstmt.setInt(4, price);
-        pstmt.setString(5, Integer.toString(className));
+System.out.println(area);
 
-    }catch(Exception e){
-            e.printStackTrace();
-    }
+try {
+	Class.forName("oracle.jdbc.OracleDriver");
+	Connection con = DriverManager.getConnection("jdbc:oracle:thin:@//localhost:1521/xe","system","1234");
+	Statement stmt = con.createStatement();
+
+
+	switch(mode) {
+	case "insert":
+		String sql = String.format("insert into tbl_class_202201 values( '%s','%s', '%s', %d, '%s')", month,cno, area,Integer.parseInt(price),tcode);
+		int rs = stmt.executeUpdate(sql);
+		%>
+		<jsp:include page="list2.jsp"></jsp:include>
+		<%
+		break;
+	}
+	
+	stmt.close();
+	con.close();
+
+}catch(Exception e) {
+	e.printStackTrace();
+}
 %>
-<jsp:forward page="index.jsp" />
+</body>
+</html>
