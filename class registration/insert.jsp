@@ -10,9 +10,9 @@
 <body>
 	<script type="text/javascript" src="check.js"></script>
 	<jsp:include page="header.jsp"></jsp:include>
-	<section>
+	<section >
 		<h1>교과목 추가</h1>
-		<from method="post" action="action.jsp" name="frm">
+		<form method="post" action="action.jsp" name="frm">
 		<input type="hidden" name="mode" value="insert">
 		<table border="1" style="width:70%; height: 70%; text-align: center">
 			<tr>
