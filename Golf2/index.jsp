@@ -5,16 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="style.css" rel="stylesheet">
 </head>
+<link href="style.css" rel="stylesheet">
 <body>
-	<jsp:include page="header.jsp" />
-	<section>
-		<h2><b>골프연습장 회원관리 프로그램</b></h2><br>
-		<p>
-			
-		</p>
-	</section>
-	<jsp:include page="footer.jsp" />
+<jsp:include page="header.jsp"></jsp:include>
+<section>
+<p/><p/>
+골프연습장 회원 관리 프로그램
+</section>
+<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
