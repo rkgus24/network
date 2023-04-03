@@ -7,13 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<header>골프연습장 회원관리</header>
-	<nav>
-		<a href="list.jsp">강사조회</a>
-		<a href="apply.jsp">수강신청</a>
-		<a href="list2.jsp">회원정보조회</a>
-		<a href="salary.jsp">강사매출현황</a>
-		<a href="index.jsp">홈으로</a>
-	</nav>
+<header>
+골프연습장 회원관리 프로그램 1.0
+</header>
+<nav>
+<a href="list.jsp">강사조회</a>
+<a href="apply.jsp">수강신청</a>
+<a href="list2.jsp">회원정보조회</a>
+<a href="salary.jsp">강사매출현황</a>
+<a href="index.jsp">홈으로</a>
+</nav>
 </body>
 </html>
