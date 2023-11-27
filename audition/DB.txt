@@ -1,38 +1,53 @@
-CREATE TABLE course_tbl(
-	id varchar2(5) NOT NULL,
-	name varchar2(40),
-	credit number(6),
-	lecturer varchar2(10),
-	week number(2),
-	start_hour number(4),
-	end_hour number(4),
-	primary key(id)
+CREATE TABLE tbl_artist_201905 (
+   ARTIST_ID CHAR(4) NOT NULL,
+   ARTIST_NAME VARCHAR2(20),
+   BIRTH CHAR(8),
+   GENDER CHAR(1),
+   TALENT CHAR(1),
+   AGENCY VARCHAR2(30),
+   PRIMARY KEY (ARTIST_ID)
 );
 
-INSERT INTO course_tbl VALUES (10001, '애플리케이션 배포', 2, '1', 1, 0900, 1100);
-INSERT INTO course_tbl VALUES (10002, '프로그래밍 언어 활용', 2, '2', 2, 0900, 1200);
-INSERT INTO course_tbl VALUES (10003, '응용SW기초기술 활용', 3, '6', 3, 0900, 1200);
-INSERT INTO course_tbl VALUES (10004, '화면구현', 3, '4', 4, 0900, 1200);
-INSERT INTO course_tbl VALUES (20001, '애플리케이션 테스트 수행', 2, '5', 1, 1300, 1600);
-INSERT INTO course_tbl VALUES (20002, 'SQL 활용', 3, '5', 2, 1500, 1800);
-INSERT INTO course_tbl VALUES (20003, 'UI 테스트', 3, '6', 3, 1330, 1630);
-INSERT INTO course_tbl VALUES (30001, '화면 설계', 2, '3', 4, 1330, 1530);
-INSERT INTO course_tbl VALUES (30002, '네트워크 프로그래밍 구현',3, '3', 5, 0900, 1200);
-INSERT INTO course_tbl VALUES (40001, '스마트문화앱구현', 3, '2', 5, 1300, 1600);
+insert into tbl_artist_201905 values ( 'AA01','김스타','19970101','F','1','A엔터테인먼트');
+insert into tbl_artist_201905 values ( 'AA02','조스타','19980201','M','2','B터테인먼트');
+insert into tbl_artist_201905 values ( 'AA03','왕스타','19900301','M','3','C엔터테인먼트');
+insert into tbl_artist_201905 values ( 'AA04','정스타','20000401','M','1','D엔터테인먼트');
+insert into tbl_artist_201905 values ( 'AA05','홍스타','20010501','F','1','E엔터테인먼트');
 
-CREATE TABLE lecturer_tbl(
-	idx number(6) NOT NULL,
-	name varchar2(10),
-	major varchar2(40),
-	primary key(idx)
+select * from tbl_artist_201905;
+
+CREATE TABLE tbl_mento_201905 (
+   MENTO_ID CHAR(04) NOT NULL,
+   MENTO_NAME VARCHAR(20),
+   PRIMARY KEY(MENTO_ID)
 );
 
-INSERT INTO lecturer_tbl VALUES(1, '김교수', '소프트웨어공학');
-INSERT INTO lecturer_tbl VALUES(2, '이교수', '프로그래밍');
-INSERT INTO lecturer_tbl VALUES(3, '박교수', '네트워크');
-INSERT INTO lecturer_tbl VALUES(4, '우교수', '운영체조');
-INSERT INTO lecturer_tbl VALUES(5, '최교수', '자료구조');
-INSERT INTO lecturer_tbl VALUES(6, '임교수', '인공지능');
+insert into tbl_mento_201905 values ( 'J001', '함멘토');
+insert into tbl_mento_201905 values ( 'J002', '박멘토');
+insert into tbl_mento_201905 values ( 'J003', '장멘토');
 
-SELECT * FROM course_tbl;
-SELECT * FROM lecturer_tbl;
+CREATE TABLE tbl_point_201905 (
+
+   SERIAL_NO NUMBER(08) NOT NULL PRIMARY KEY,
+   ARTIST_ID CHAR(04),
+   MENTO_ID CHAR(04),
+   SCORE NUMBER(3),
+   FOREIGN KEY(ARTIST_ID) REFERENCES tbl_artist_201905(atrist_id),
+   FOREIGN KEY(MENTO_ID) REFERENCES tbl_mento_201905(mento_id)
+);
+
+insert into tbl_point_201905 values (  2019001, 'AA01', 'J001', 78);
+insert into tbl_point_201905 values (  2019002, 'AA01', 'J002', 76);
+insert into tbl_point_201905 values (  2019003, 'AA01', 'J003', 70);
+insert into tbl_point_201905 values (  2019004, 'AA02', 'J001', 80);
+insert into tbl_point_201905 values (  2019005, 'AA02', 'J002', 72);
+insert into tbl_point_201905 values (  2019006, 'AA02', 'J003', 78);
+insert into tbl_point_201905 values (  2019007, 'AA03', 'J001', 90);
+insert into tbl_point_201905 values (  2019008, 'AA03', 'J002', 92);
+insert into tbl_point_201905 values (  2019009, 'AA03', 'J003', 88);
+insert into tbl_point_201905 values (  2019010, 'AA04', 'J001', 96);
+insert into tbl_point_201905 values (  2019011, 'AA04', 'J002', 90);
+insert into tbl_point_201905 values (  2019012, 'AA04', 'J003', 98);
+insert into tbl_point_201905 values (  2019013, 'AA05', 'J001', 88);
+insert into tbl_point_201905 values (  2019014, 'AA05', 'J002', 86);
+insert into tbl_point_201905 values (  2019015, 'AA05', 'J003', 86);
